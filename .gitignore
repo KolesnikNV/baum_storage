@@ -1,0 +1,4 @@
+*.txt
+__pychace__
+venv
+.venv
