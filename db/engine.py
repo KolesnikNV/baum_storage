@@ -1,19 +1,16 @@
-import os
-
-from dotenv import load_dotenv
 from sqlalchemy import URL, create_engine
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import scoped_session, sessionmaker
+from utils.config import (
+    DB_ENGINE,
+    POSTGRES_USER,
+    POSTGRES_PASSWORD,
+    DB_HOST,
+    POSTGRES_DB,
+)
 
-load_dotenv()
 
 DeclarativeBase = declarative_base()
-
-DB_ENGINE = os.getenv("DB_ENGINE")
-POSTGRES_USER = os.getenv("POSTGRES_USER")
-POSTGRES_PASSWORD = os.getenv("POSTGRES_PASSWORD")
-DB_HOST = os.getenv("DB_HOST")
-POSTGRES_DB = os.getenv("POSTGRES_DB")
 
 url_object = URL.create(
     DB_ENGINE,

@@ -1,17 +1,13 @@
-import os
 from datetime import timedelta
 
 from celery import Celery
-from dotenv import load_dotenv
 from loguru import logger
 
 from db.engine import get_db
 from db.models import MessageModel
+from config import BROKER_URL
 
-load_dotenv()
-broker_url = os.getenv("BROKER_URL", default="pyamqp://guest:guest@localhost//")
-
-celery = Celery("tasks", broker=broker_url)
+celery = Celery("tasks", broker=BROKER_URL)
 
 
 celery.conf.update(

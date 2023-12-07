@@ -1,12 +1,7 @@
-import os
-
-from dotenv import load_dotenv
 from sqlalchemy import Column, DateTime, Float, Integer, MetaData, String
 from sqlalchemy.ext.asyncio import create_async_engine
 from sqlalchemy.orm import declarative_base, scoped_session, sessionmaker
-
-load_dotenv()
-DATABASE_URL = os.getenv("DATABASE_URL")
+from utils.config import DATABASE_URL
 
 
 engine = create_async_engine(DATABASE_URL, echo=True)
