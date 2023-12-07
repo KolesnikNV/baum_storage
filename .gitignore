@@ -1,4 +1,5 @@
 *.txt
-__pychace__
+__pycache__
 venv
 .venv
+.idea
